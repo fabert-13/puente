@@ -32,6 +32,8 @@ export const createTables = async () => {
         respuesta8 VARCHAR(1),
         respuesta9 VARCHAR(1),
         respuesta10 VARCHAR(1),
+        respuesta11 VARCHAR(1),
+        respuesta12 VARCHAR(1),
         devolucion TEXT,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         UNIQUE (idestudiante, idtest)
