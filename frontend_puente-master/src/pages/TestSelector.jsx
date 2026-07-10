@@ -45,12 +45,12 @@ export default function TestSelector() {
               Identifica tus fortalezas y habilidades naturales para encontrar profesiones donde puedas destacar.
             </p>
             <p className="text-sm text-gray-500 mb-3">Duración: 10 minutos</p>
-            <Link
-              to="/testGestionTiempo"
-              className="bg-emerald-600 text-white text-sm px-4 py-2 rounded hover:bg-emerald-700"
+            <button
+              disabled
+              className="bg-gray-400 text-white text-sm px-4 py-2 rounded cursor-not-allowed opacity-80"
             >
-                Comenzar
-            </Link>
+              ¡Próximamente!
+            </button>
           </div>
         </div>
 
@@ -65,12 +65,12 @@ export default function TestSelector() {
               Este test puede ayudarte a identificar áreas y puntos fuertes en los que destacas, lo cual es útil para orientar tu vocación o elección de carrera.
             </p>
             <p className="text-sm text-gray-500 mb-3">Duración: 10 minutos</p>
-            <Link
-              to="/testHabilidadesCognitivas"
-              className="bg-orange-400 text-white text-sm px-4 py-2 rounded hover:bg-amber-700"
+            <button
+              disabled
+              className="bg-gray-400 text-white text-sm px-4 py-2 rounded cursor-not-allowed opacity-80"
             >
-                Comenzar
-            </Link>
+              ¡Próximamente!
+            </button>
           </div>
         </div>
 
@@ -85,12 +85,12 @@ export default function TestSelector() {
 Descubrí qué carrera podrías estudiar siguiendo tus intereses y gustos con este test de orientación vocacional.          
 </p>
             <p className="text-sm text-gray-500 mb-3">Duración: 10 minutos</p>
-            <Link
-              to="/testOrientacionVocacional"
-              className="bg-blue-400 text-white text-sm px-4 py-2 rounded hover:bg-blue-700"
+            <button
+              disabled
+              className="bg-gray-400 text-white text-sm px-4 py-2 rounded cursor-not-allowed opacity-80"
             >
-                Comenzar
-            </Link>
+              ¡Próximamente!
+            </button>
           </div>
         </div>
       </section>

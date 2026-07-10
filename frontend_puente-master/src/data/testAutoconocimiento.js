@@ -34,7 +34,7 @@ const testAutoconocimiento = [
   },
   {
     id: 4,
-    text: "¿Cuál de los siguientes aspectos consideras más importantes?",
+    text: "¿Cuál de los siguientes aspectos consideras más importante?",
     options: [
       "Conocimiento y aprendizaje.",
       "Salud y bienestar.",
