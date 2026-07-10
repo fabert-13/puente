@@ -12,6 +12,7 @@ import TestHabilidadesCognitivas from './pages/TestHabilidadesCognitivas.jsx';
 import AdminResultadosHabCogni from './pages/AdminHabCogni.jsx';
 import TestOrientacionVocacional from './pages/TestOrientacionVocacional.jsx';
 import ResultadosOV from './pages/AdminOV.jsx';
+import Proximamente from './pages/Proximamente.jsx';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -22,9 +23,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="/" element={<App />} />
           <Route path="/tests" element={<TestSelector />} />
           <Route path="/testAutoconocimiento" element={<TestAutoconocimiento />} />
-          <Route path="/testGestionTiempo" element={<TestTiempoGestion />} />
-          <Route path="/testHabilidadesCognitivas" element={<TestHabilidadesCognitivas/>} />
-          <Route path="/testOrientacionVocacional" element={<TestOrientacionVocacional/>} />
+          <Route path="/testGestionTiempo" element={<Proximamente />} /> 
+          <Route path="/testHabilidadesCognitivas" element={<Proximamente />} /> 
+          <Route path="/testOrientacionVocacional" element={<Proximamente />} /> 
           <Route path="/admin/resultados" element={<AdminResultados />} />
           <Route path="/admin/resultadosHC" element={<AdminResultadosHabCogni/>} />
           <Route path="/admin/resultadosOV" element={<ResultadosOV/>} />
