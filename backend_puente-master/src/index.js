@@ -22,7 +22,7 @@ createTables();
 const PORT = process.env.PORT || 3001;
 
 // Verificar conexión a la base de datos
-pool.connect()
+/*pool.connect()
   .then(client => {
     console.log('✅ Conexión exitosa a la base de datos PostgreSQL');
     client.release(); // Liberamos el cliente de conexión
@@ -30,6 +30,19 @@ pool.connect()
     app.listen(PORT, () => {
       console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
     });
+  })
+  .catch(err => {
+    console.error('❌ Error al conectar a la base de datos:', err);
+  });*/
+
+app.listen(PORT, () => {
+  console.log(`🚀 Servidor corriendo en el puerto ${PORT}`);
+});
+
+pool.connect()
+  .then(client => {
+    console.log('✅ Conexión exitosa a la base de datos PostgreSQL');
+    client.release();
   })
   .catch(err => {
     console.error('❌ Error al conectar a la base de datos:', err);
