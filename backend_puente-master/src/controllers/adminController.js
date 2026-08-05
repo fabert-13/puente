@@ -66,7 +66,8 @@ export const listarRespuestasPorTest = async (req, res) => {
         e.dni,
         e.email,
         r.respuesta1, r.respuesta2, r.respuesta3, r.respuesta4, r.respuesta5,
-        r.respuesta6, r.respuesta7, r.respuesta8, r.respuesta9, r.respuesta10
+        r.respuesta6, r.respuesta7, r.respuesta8, r.respuesta9, r.respuesta10,
+        r.respuesta11, r.respuesta12
       FROM respuestas r
       JOIN estudiantes e ON r.idestudiante = e.id
       WHERE r.idtest = $1
