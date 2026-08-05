@@ -16,7 +16,7 @@ export default function AdminResultados() {
       "Apellido",
       "DNI",
       "Email",
-      ...Array.from({ length: 10 }, (_, i) => `Respuesta${i + 1}`),
+      ...Array.from({ length: 12 }, (_, i) => `Respuesta${i + 1}`),
       "Devolución",
     ];
 
@@ -35,6 +35,8 @@ export default function AdminResultados() {
       r.respuesta8,
       r.respuesta9,
       r.respuesta10,
+      r.respuesta11,
+      r.respuesta12,
       r.devolucion.replace(/\n/g, " "), // quitar saltos de línea
     ]);
 
@@ -155,7 +157,7 @@ export default function AdminResultados() {
                   <th className="p-2 border">Apellido</th>
                   <th className="p-2 border">DNI</th>
                   <th className="p-2 border">Email</th>
-                  {[...Array(10)].map((_, i) => (
+                  {[...Array(12)].map((_, i) => (
                     <th key={i} className="p-2 border">
                       R{i + 1}
                     </th>
@@ -172,7 +174,7 @@ export default function AdminResultados() {
                     <td className="p-2 border">{r.apellido}</td>
                     <td className="p-2 border">{r.dni}</td>
                     <td className="p-2 border">{r.email}</td>
-                    {Array.from({ length: 10 }).map((_, i) => (
+                    {Array.from({ length: 12 }).map((_, i) => (
                       <td key={i} className="p-2 border">
                         {r[`respuesta${i + 1}`]}
                       </td>
