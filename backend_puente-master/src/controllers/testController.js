@@ -205,13 +205,13 @@ export const submitTest = async (req, res) => {
 };
 
 export const verificarTest1 = async (req, res) => {
-  const { dni, email } = req.body;
+  const { dni } = req.body;
 
   try {
-    // Buscar estudiante
+    // Buscar estudiante solo por DNI
     const estudiante = await pool.query(
-      "SELECT id FROM estudiantes WHERE dni = $1 AND email = $2",
-      [dni, email]
+      "SELECT id FROM estudiantes WHERE dni = $1",
+      [dni]
     );
 
     if (estudiante.rows.length === 0) {
