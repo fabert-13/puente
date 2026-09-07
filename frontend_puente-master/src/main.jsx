@@ -23,7 +23,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="/" element={<App />} />
           <Route path="/tests" element={<TestSelector />} />
           <Route path="/testAutoconocimiento" element={<TestAutoconocimiento />} />
-          <Route path="/testGestionTiempo" element={<Proximamente />} /> 
+          <Route path="/testGestionTiempo" element={<TestTiempoGestion />} /> 
           <Route path="/testHabilidadesCognitivas" element={<Proximamente />} /> 
           <Route path="/testOrientacionVocacional" element={<Proximamente />} /> 
           <Route path="/admin/resultados" element={<AdminResultados />} />

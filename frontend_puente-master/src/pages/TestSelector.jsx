@@ -45,12 +45,12 @@ export default function TestSelector() {
               Identifica tus fortalezas y habilidades naturales para encontrar profesiones donde puedas destacar.
             </p>
             <p className="text-sm text-gray-500 mb-3">Duración: 10 minutos</p>
-            <button
-              disabled
-              className="bg-gray-400 text-white text-sm px-4 py-2 rounded cursor-not-allowed opacity-80"
+            <Link
+              to="/testGestionTiempo"
+              className="bg-indigo-600 text-white text-sm px-4 py-2 rounded hover:bg-indigo-700"
             >
-              ¡Próximamente!
-            </button>
+              Comenzar
+            </Link>
           </div>
         </div>
 
