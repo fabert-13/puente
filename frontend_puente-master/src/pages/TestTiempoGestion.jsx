@@ -16,6 +16,7 @@ function TestTiempoGestion() {
   const [answers, setAnswers] = useState({});
   const [devolucion, setDevolucion] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const total = testTiempoGestion.length;
   const idTest = 2;
@@ -24,98 +25,113 @@ function TestTiempoGestion() {
     setStudent({ ...student, [e.target.name]: e.target.value });
   };
 
-const validarEstudiante = async () => {
-  setError("");
+  //Nueva versión de validarEstudiante con manejo de loading
+  const validarEstudiante = async () => {
+    if (loading) return;
 
-  const camposVacios = Object.entries(student).filter(
-    ([_, valor]) => !valor.trim()
-  );
+    setLoading(true);
+    setError("");
 
-  if (camposVacios.length > 0) {
-    setError("Por favor completá todos los campos.");
-    return;
-  }
+    const camposVacios = Object.entries(student).filter(
+      ([_, valor]) => !valor.trim()
+    );
 
-  try {
-    // Paso 1: verificar si hizo el test 1
-    const verificarRes = await fetch(`${API_URL}/api/tests/verificar-test1`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ dni: student.dni, email: student.email }),
-    });
-
-    const verificarData = await verificarRes.json();
-
-    if (!verificarRes.ok) {
-      setError(verificarData.error || "No podés hacer este test aún.");
+    if (camposVacios.length > 0) {
+      setError("Por favor completá todos los campos.");
+      setLoading(false);
       return;
     }
 
-    // Paso 2: enviar validación como en test 1 (sin respuestas aún)
-    const res = await fetch(`${API_URL}/api/tests/submit`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        ...student,
-        idTest,
-        respuestas: [],
-      }),
-    });
+    try {
+      // Paso 1: verificar si hizo el test 1
+      const verificarRes = await fetch(`${API_URL}/api/tests/verificar-test1`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ dni: student.dni }),
+      });
 
-    const data = await res.json();
+      const verificarData = await verificarRes.json();
 
-    if (!res.ok) {
-      setError(data.error || "Error en la validación.");
-    } else {
-      setStep("test");
+      if (!verificarRes.ok) {
+        setError(verificarData.error || "No podés hacer este test aún.");
+        return;
+      }
+
+      // Paso 2: enviar validación como en test 1 (sin respuestas aún)
+      const res = await fetch(`${API_URL}/api/tests/submit`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...student,
+          idTest,
+          respuestas: [],
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setError(data.error || "Error en la validación.");
+      } else {
+        setStep("test");
+      }
+    } catch (err) {
+      console.error("❌ Error al validar estudiante:", err);
+      setError("Error al conectar con el servidor.");
+    } finally {
+      setLoading(false);
     }
-  } catch (err) {
-    console.error("❌ Error al validar estudiante:", err);
-    setError("Error al conectar con el servidor.");
-  }
-};
-
-
+  };
 
   const handleSelect = (option) => {
     setAnswers({ ...answers, [current]: option });
   };
 
+  //Nueva versión de handleNext con manejo de loading
   const handleNext = async () => {
+    if (loading) return;
+
     if (current < total - 1) {
       setCurrent(current + 1);
-    } else {
-      const respuestasFinales = Object.keys(answers).map((key) => {
-        const index = parseInt(key, 10);
-        const opcion = answers[index];
-        const letra = ["a", "b", "c", "d", "e"][
+      return;
+    }
+
+    setLoading(true);
+
+    const respuestasFinales = Object.keys(answers).map((key) => {
+      const index = parseInt(key, 10);
+      const opcion = answers[index];
+      const letra =
+        ["a", "b", "c", "d", "e"][
           testTiempoGestion[index].options.indexOf(opcion)
         ];
-        return letra || "e";
+      return letra || "e";
+    });
+
+    try {
+      const res = await fetch(`${API_URL}/api/tests/submit`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...student,
+          idTest,
+          respuestas: respuestasFinales,
+        }),
       });
 
-      try {
-        const res = await fetch(`${API_URL}/api/tests/submit`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            ...student,
-            idTest,
-            respuestas: respuestasFinales,
-          }),
-        });
+      const data = await res.json();
 
-        const data = await res.json();
-        if (res.ok) {
-          setDevolucion(data.devolucion);
-          setStep("final");
-        } else {
-          setError(data.error || "No se pudo guardar el test.");
-        }
-      } catch (err) {
-        console.error("❌ Error al enviar test:", err);
-        setError("Error al enviar el test.");
+      if (res.ok) {
+        setDevolucion(data.devolucion);
+        setStep("final");
+      } else {
+        setError(data.error || "No se pudo guardar el test.");
       }
+    } catch (err) {
+      console.error("❌ Error al enviar test:", err);
+      setError("Error al enviar el test.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -140,11 +156,43 @@ const validarEstudiante = async () => {
               />
             ))}
             {error && <p className="text-red-600 text-sm">{error}</p>}
+
             <button
-              className="w-full bg-blue-700 text-white px-4 py-2 rounded hover:bg-sky-600"
+              className={`w-full px-4 py-2 rounded text-white flex items-center justify-center gap-2 transition ${
+                loading
+                  ? "bg-gray-400 cursor-not-allowed"
+                  : "bg-blue-700 hover:bg-sky-600"
+              }`}
               onClick={validarEstudiante}
+              disabled={loading}
             >
-              Comenzar test
+              {loading ? (
+                <>
+                  <svg
+                    className="animate-spin h-5 w-5"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    />
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018 8H4z"
+                    />
+                  </svg>
+                  Conectando...
+                </>
+              ) : (
+                "Comenzar test"
+              )}
             </button>
           </div>
         </div>
@@ -171,10 +219,11 @@ const validarEstudiante = async () => {
     <div className="min-h-screen bg-gray-100 p-4">
       <div className="max-w-4xl mx-auto">
         <header className="bg-gradient-to-r from-green-600 to-emerald-700 text-white p-6 rounded-xl shadow-md mb-6">
-          <h1 className="text-3xl font-bold">Test 2: Organización del Tiempo y Gestión Económica</h1>
+          <h1 className="text-3xl font-bold">
+            Test 2: Organización del Tiempo y Gestión Económica
+          </h1>
           <p className="text-sm mt-1">
-            Este test evalúa tus hábitos de planificación, organización y uso
-            del tiempo.
+            Este test está diseñado para ayudarte a identificar tu estilo de organización del tiempo, tu nivel de autonomía y tu forma de gestionar los recursos económicos. Conocer estos aspectos puede ayudarte a reconocer fortalezas y hábitos que favorezcan tu desarrollo académico, laboral y personal, en relación con el proyecto de vida que estás construyendo.
           </p>
         </header>
 
@@ -196,11 +245,43 @@ const validarEstudiante = async () => {
           />
 
           <button
-            className="mt-6 bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-full"
+            className={`mt-6 px-6 py-2 rounded-full text-white flex items-center justify-center gap-2 transition ${
+              !answers[current] || loading
+                ? "bg-gray-400 cursor-not-allowed"
+                : "bg-purple-600 hover:bg-purple-700"
+            }`}
             onClick={handleNext}
-            disabled={!answers[current]}
+            disabled={!answers[current] || loading}
           >
-            {current === total - 1 ? "Finalizar" : "Siguiente"}
+            {loading ? (
+              <>
+                <svg
+                  className="animate-spin h-5 w-5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  />
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018 8H4z"
+                  />
+                </svg>
+                Enviando...
+              </>
+            ) : current === total - 1 ? (
+              "Finalizar"
+            ) : (
+              "Siguiente"
+            )}
           </button>
         </div>
       </div>

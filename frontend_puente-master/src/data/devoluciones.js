@@ -56,6 +56,130 @@ Lo importante no es tener todas las respuestas, sino animarte a buscarlas.
 Recordá que este resultado es una guía para que sigas explorando tus intereses, aprendiendo y encontrando el camino que más te motive. Tomate tu tiempo para reflexionar sobre tus procesos y resultados. Cada persona es única, así que ajustá estas estrategias a tus necesidades e intereses.`,
 };
 
+export const devolucionesGestionTiempo = {
+
+    a: `¡Buen trabajo completando el test!
+
+Sos espontáneo, pero necesitás fortalecer tus hábitos de organización. Este estilo tiene muchas fortalezas, pero también puede presentarte ciertos desafíos, sobre todo en contextos donde se espera organización, como el estudio o el trabajo. No se trata de cambiar tu forma de ser, sino de fortalecerla con herramientas que permitan alcanzar tus objetivos sin perder tu esencia.
+
+Tus fortalezas:
+
+● Gran creatividad e imaginación.
+
+● Capacidad de disfrutar del presente.
+
+● Espontaneidad para resolver problemas.
+
+Áreas a mejorar:
+
+● Planificación anticipada de gastos importantes.
+
+● Mejora del control del tiempo y prioridades.
+
+Tips para seguir mejorando:
+
+● Utilizá métodos visuales como calendarios o planificadores de colores.
+
+● Definí un "presupuesto divertido": una cantidad limitada para ocio sin culpas.
+
+● Establecé una "meta visible" de ahorro (por ejemplo, colocá una imagen del objetivo en tu celular o agenda).
+
+Este es el primer paso para llegar a tus metas, no solo en el área académica sino también para llevar una mejor organización en la vida cotidiana.
+
+¡Celebrá tus logros y no te rindas! ¡Seguí así que podés lograrlo!`,
+
+    b: `¡Buen trabajo completando el test!
+
+Actuás de manera práctica según las circunstancias, pero podés ser más organizado. Este estilo tiene fortalezas muy valiosas, sin embargo, también es importante tener en cuenta que, en algunos entornos (universitarios o trabajos) se valoran habilidades de planificación. Esto no significa cambiar quién sos, sino que desarrollar herramientas para organizarte mejor puede potenciar aún más tu rendimiento sin perder tu estilo natural.
+
+Tus fortalezas:
+
+● Realista para actuar según los recursos que tenés disponibles.
+
+● Flexibilidad para afrontar diferentes situaciones.
+
+● Buena intuición económica.
+
+Áreas a mejorar:
+
+● Constancia en los hábitos de ahorro y planificación.
+
+● Organización más rigurosa del tiempo.
+
+Tips para seguir mejorando:
+
+● Creá un presupuesto mensual sencillo.
+
+● Usá alarmas o recordatorios para organizar tus actividades.
+
+● Practicá establecer "pequeños objetivos" semanales de ahorro (aunque sea una pequeña cantidad).
+
+Este es el primer paso para llegar a tus metas, no solo en el área académica sino también para llevar una mejor organización en la vida cotidiana.
+
+¡Celebrá tus logros y no te rindas! ¡Seguí así que podés lograrlo!`,
+
+    c: `¡Buen trabajo completando el test!
+
+Te adaptás bien a los cambios y sabés priorizar lo esencial en el momento. Esto puede ser una gran fortaleza, ya que te permite manejarte con flexibilidad. Ahora bien, como todo estilo, también tiene sus desafíos. A veces la flexibilidad puede hacer que postergues algunas tareas o te cueste mantener la constancia. Por eso, es útil que sigas conociéndote y pruebes qué hábitos y herramientas te ayudan a tener un equilibrio para mejorar cada día.
+
+Fortalezas:
+
+● Gran capacidad de adaptación.
+
+● Pensamiento práctico y realista.
+
+● Rapidez en la toma de decisiones.
+
+Áreas a mejorar:
+
+● Mayor planificación a mediano y largo plazo.
+
+● Control más estricto de gastos.
+
+Tips para seguir mejorando:
+
+● Usá una app simple, una agenda o un cuaderno para registrar tus gastos diarios.
+
+● Definí objetivos económicos a 6 meses, por ejemplo.
+
+● Practicá dividir tus actividades en tareas semanales.
+
+Este es el primer paso para llegar a tus metas, no solo en el área académica sino también para llevar una mejor organización en la vida cotidiana.
+
+¡Celebrá tus logros y no te rindas! ¡Seguí así que podés lograrlo!`,
+
+    d: `¡Buen trabajo completando el test!
+
+Tenés una gran capacidad para organizar, planificar y prever situaciones. Este estilo aporta muchas ventajas, pero también es importante tener en cuenta que, si bien la planificación es una gran fortaleza, en algunos contextos puede ser útil desarrollar cierta flexibilidad. No todo siempre sale como se espera, y aprender a adaptarse a los cambios también es una habilidad valiosa.
+
+Tus fortalezas:
+
+● Excelente manejo de recursos y tiempos.
+
+● Visión a largo plazo.
+
+● Alta responsabilidad y compromiso.
+
+Áreas a mejorar:
+
+● Ser más flexible ante cambios imprevistos.
+
+● Evitar la sobreplanificación que puede causar estrés.
+
+Tips para seguir mejorando:
+
+● Dejá un margen de tiempo en tu agenda para imprevistos.
+
+● Practicá técnicas de "gestión flexible", para poder reorganizar actividades en tiempo real.
+
+● Dedicá un porcentaje de tu ahorro a actividades que disfrutes ahora, no solo a objetivos futuros.
+
+Este es el primer paso para llegar a tus metas, no solo en el área académica sino también para llevar una mejor organización en la vida cotidiana. Te animo a seguir aprovechando esta cualidad.
+
+¡Celebrá tus logros y no te rindas! ¡Seguí así que podés lograrlo!`,
+
+};
+
 /*export const devolucionesAutoconocimiento = {
   a: `¡Buen trabajo completando el test!
 
