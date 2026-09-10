@@ -223,7 +223,7 @@ function TestTiempoGestion() {
             Test 2: Organización del Tiempo y Gestión Económica
           </h1>
           <p className="text-sm mt-1">
-            Este test está diseñado para ayudarte a identificar tu estilo de organización del tiempo, tu nivel de autonomía y tu forma de gestionar los recursos económicos. Conocer estos aspectos puede ayudarte a reconocer fortalezas y hábitos que favorezcan tu desarrollo académico, laboral y personal, en relación con el proyecto de vida que estás construyendo.
+            Este test está diseñado para ayudarte a identificar tu estilo de organización del tiempo, tu nivel de autonomía y tu forma de gestionar los recursos económicos. Detectar estos aspectos puede ayudarte a reconocer fortalezas y hábitos que favorezcan tu desarrollo académico, laboral y personal, en relación con el proyecto de vida que estás construyendo.
           </p>
         </header>
 
