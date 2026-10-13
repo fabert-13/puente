@@ -24,7 +24,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="/tests" element={<TestSelector />} />
           <Route path="/testAutoconocimiento" element={<TestAutoconocimiento />} />
           <Route path="/testGestionTiempo" element={<TestTiempoGestion />} /> 
-          <Route path="/testHabilidadesCognitivas" element={<Proximamente />} /> 
+          <Route path="/testHabilidadesCognitivas" element={<TestHabilidadesCognitivas />} /> 
           <Route path="/testOrientacionVocacional" element={<Proximamente />} /> 
           <Route path="/admin/resultados" element={<AdminResultados />} />
           <Route path="/admin/resultadosHC" element={<AdminResultadosHabCogni/>} />
