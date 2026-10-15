@@ -74,7 +74,7 @@ const testHabilidadesCognitivas = [
     ],
     "Razonamiento lógico abstracto": [
       {
-        "pregunta": "Si la palabra \"CARTA\" es igual a \"DBSUB\", ¿cómo sería la palabra \"LIBRO\"?",
+        "pregunta": "A continuación se presenta un código donde cada letra es reemplazada por la letra siguiente del abecedario.\n\nEjemplo: Si 'CARTA' es igual a 'DBSUB', es porque:\nC+1=D, A+1=B, R+1=S, T+1=U, A+1=B.\n\nSiguiendo la misma lógica, responde:\n¿Cómo sería 'LIBRO'?",
         "opciones": ["MGWCS", "KIPWN", "HJGVQ", "MJCSP"],
         "respuesta_correcta": "MJCSP"
       },
